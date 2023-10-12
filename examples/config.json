@@ -1,0 +1,10 @@
+{
+  "twilio": {
+    "accountSID": "XXXX",
+    "authToken":  "YYYY"
+  },
+  "sms": {
+    "from": "+15552223333",
+    "to": "+2225553333"
+  }
+}
