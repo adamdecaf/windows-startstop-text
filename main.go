@@ -63,9 +63,14 @@ func main() {
 
 	switch {
 	case *flagLocked:
+		// 4800: The workstation was locked
+		// 4801: The workstation was unlocked
 		conf.SMS.Body = fmt.Sprintf("System %s is LOCKED at %v", hostname, when)
+
 	case *flagShutdown:
+		// 1074: System has been shutdown by a process/user
 		conf.SMS.Body = fmt.Sprintf("System %s is SHUTTING down at %v", hostname, when)
+
 	case *flagStartup:
 		conf.SMS.Body = fmt.Sprintf("System %s is STARTING up at %v", hostname, when)
 	default:
