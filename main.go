@@ -58,7 +58,7 @@ func main() {
 	// Maybe with https://pkg.go.dev/golang.org/x/sys@v0.13.0/windows#Handle
 	// Examples: https://gist.github.com/glennswest/3d4bf8448193d6868baf0665a6fb1c5a
 
-	when := time.Now()
+	when := time.Now().Truncate(1 * time.Second)
 	hostname, _ := os.Hostname()
 
 	switch {
