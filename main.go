@@ -31,6 +31,7 @@ import (
 var (
 	flagConfigFilepath = flag.String("config", "examples/config.json", "Filepath of JSON config file")
 
+	flagLocked   = flag.Bool("locked", false, "Send notification about locking workstation")
 	flagShutdown = flag.Bool("shutdown", false, "Send notification about system shutdown")
 	flagStartup  = flag.Bool("startup", false, "Send notification about system startup")
 )
@@ -61,6 +62,8 @@ func main() {
 	hostname, _ := os.Hostname()
 
 	switch {
+	case *flagLocked:
+		conf.SMS.Body = fmt.Sprintf("System %s is LOCKED at %v", hostname, when)
 	case *flagShutdown:
 		conf.SMS.Body = fmt.Sprintf("System %s is SHUTTING down at %v", hostname, when)
 	case *flagStartup:
